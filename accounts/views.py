@@ -7,9 +7,16 @@ from django.contrib.auth import get_user_model
 from .seralizers import UserSerializer
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 User = get_user_model()
+
+
+@ensure_csrf_cookie
+def get_csrf_token(request):
+    return JsonResponse({"message": "CSRF token set"})
 
 
 @method_decorator(csrf_exempt, name='dispatch')
