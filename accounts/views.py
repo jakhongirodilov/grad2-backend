@@ -9,6 +9,8 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
+from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
+from drf_spectacular.types import OpenApiTypes
 
 
 User = get_user_model()
@@ -21,6 +23,11 @@ def get_csrf_token(request):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(APIView):
+    @extend_schema(
+        request=UserSerializer,
+        responses={201: {"message": "User registered successfully"}, 400: "Validation Error"},
+    )
+
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
@@ -30,6 +37,22 @@ class RegisterView(APIView):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class LoginView(APIView):
+    @extend_schema(
+        request=OpenApiTypes.OBJECT,
+        examples=[
+            OpenApiExample(
+                "Login Example",
+                summary="Example login request",
+                value={"username": "testuser", "password": "securepassword"},
+                request_only=True,
+            )
+        ],
+        responses={
+            200: OpenApiTypes.OBJECT,
+            400: OpenApiTypes.OBJECT,
+        },
+    )
+    
     def post(self, request):
         username = request.data.get("username")
         password = request.data.get("password")
@@ -43,6 +66,11 @@ class LoginView(APIView):
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
     
+    @extend_schema(
+        request=None,
+        responses={200: {"message": "Logout successful"}},
+    )
+
     def post(self, request):
         logout(request)
         return Response({"message": "Logout successful"})
@@ -51,6 +79,10 @@ class LogoutView(APIView):
 class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
     
+    @extend_schema(
+        responses={200: UserSerializer},
+    )
+
     def get(self, request):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
@@ -59,6 +91,19 @@ class UserProfileView(APIView):
 class UpdatePlayerIDView(APIView):
     permission_classes = [IsAuthenticated]
     
+    @extend_schema(
+        request=OpenApiTypes.OBJECT,
+        examples=[
+            OpenApiExample(
+                "Update Player ID",
+                summary="Example request to update OneSignal player ID",
+                value={"player_id": "some-unique-id"},
+                request_only=True,
+            )
+        ],
+        responses={200: {"message": "Player ID updated successfully"}},
+    )
+
     def post(self, request):
         request.user.one_signal_player_id = request.data.get("player_id")
         request.user.save()

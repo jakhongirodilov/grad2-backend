@@ -9,12 +9,31 @@ from .serializers import ReceptivityResponseSerializer
 from django.contrib.auth import get_user_model
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from drf_spectacular.utils import extend_schema, OpenApiParameter
+from drf_spectacular.types import OpenApiTypes
 
 User = get_user_model()
 
 @method_decorator(csrf_exempt, name='dispatch')
 class SubmitResponseView(APIView):
     permission_classes = [IsAuthenticated]
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="notification_id",
+                description="ID of the notification being responded to",
+                required=True,
+                type=OpenApiTypes.INT,
+                location=OpenApiParameter.PATH,
+            ),
+        ],
+        request=ReceptivityResponseSerializer,  
+        responses={
+            200: {"description": "Response recorded", "example": {"message": "Response recorded"}},
+            400: {"description": "Validation Error", "example": {"error": "Invalid data"}},
+        },
+    )
     
     def post(self, request, notification_id):
         notification = get_object_or_404(Notification, id=notification_id)
