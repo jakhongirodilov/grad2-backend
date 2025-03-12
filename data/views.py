@@ -42,3 +42,13 @@ class SubmitResponseView(APIView):
             serializer.save(user=notification.user, notification=notification)
             return Response({"message": "Response recorded"})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+from django.http import JsonResponse
+from data.utils import send_telegram_message
+
+def notify_user(request, user_id):
+    bot_token='8187229531:AAFlGG2TcUgHiNDkqDPOaDtlZJCj2wGXBxs'
+    msg = 'TEST TEST TEST'
+    response = send_telegram_message(msg, bot_token, user_id)
+    return JsonResponse(response)
