@@ -108,6 +108,6 @@ class UpdatePlayerIDView(APIView):
     )
 
     def post(self, request):
-        request.user.one_signal_player_id = request.data.get("player_id")
+        request.user.telegram_id = request.data.get("player_id")
         request.user.save()
         return Response({"message": "Player ID updated successfully"})
