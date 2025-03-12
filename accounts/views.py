@@ -1,16 +1,15 @@
-from django.contrib.auth import authenticate, login, logout
-from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from django.contrib.auth import get_user_model
-from .seralizers import UserSerializer
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from django.views.decorators.csrf import ensure_csrf_cookie
-from drf_spectacular.utils import extend_schema, OpenApiParameter, OpenApiExample
+from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
 from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema, OpenApiExample
+from .seralizers import UserSerializer
 
 
 User = get_user_model()
@@ -34,6 +33,7 @@ class RegisterView(APIView):
             serializer.save()
             return Response({"message": "User registered successfully"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class LoginView(APIView):
@@ -62,6 +62,7 @@ class LoginView(APIView):
         login(request, user)
         return Response({"message": "Login successful"})
 
+
 @method_decorator(csrf_exempt, name='dispatch')
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
@@ -75,6 +76,7 @@ class LogoutView(APIView):
         logout(request)
         return Response({"message": "Logout successful"})
 
+
 @method_decorator(csrf_exempt, name='dispatch')
 class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
@@ -86,6 +88,7 @@ class UserProfileView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
+    
 
 @method_decorator(csrf_exempt, name='dispatch')
 class UpdatePlayerIDView(APIView):
