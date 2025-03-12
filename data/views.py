@@ -47,6 +47,7 @@ class SubmitResponseView(APIView):
 from django.http import JsonResponse
 from data.utils import send_telegram_message
 
+@csrf_exempt
 def notify_user(request, user_id):
     bot_token='8187229531:AAFlGG2TcUgHiNDkqDPOaDtlZJCj2wGXBxs'
     msg = 'TEST TEST TEST'

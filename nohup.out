@@ -1,0 +1,22 @@
+[2025-02-20 18:50:43 +0000] [20053] [INFO] Starting gunicorn 23.0.0
+[2025-02-20 18:50:43 +0000] [20053] [INFO] Listening at: http://0.0.0.0:8000 (20053)
+[2025-02-20 18:50:43 +0000] [20053] [INFO] Using worker: sync
+[2025-02-20 18:50:43 +0000] [20054] [INFO] Booting worker with pid: 20054
+[2025-02-20 18:50:43 +0000] [20055] [INFO] Booting worker with pid: 20055
+[2025-02-20 18:50:43 +0000] [20056] [INFO] Booting worker with pid: 20056
+[2025-02-20 18:50:48 +0000] [20053] [INFO] Handling signal: int
+[2025-02-20 18:50:48 +0000] [20056] [INFO] Worker exiting (pid: 20056)
+[2025-02-20 18:50:48 +0000] [20055] [INFO] Worker exiting (pid: 20055)
+[2025-02-20 18:50:48 +0000] [20054] [INFO] Worker exiting (pid: 20054)
+[2025-02-20 18:50:48 +0000] [20053] [INFO] Shutting down: Master
+[2025-02-20 18:51:12 +0000] [20064] [INFO] Starting gunicorn 23.0.0
+[2025-02-20 18:51:12 +0000] [20064] [INFO] Listening at: http://0.0.0.0:8000 (20064)
+[2025-02-20 18:51:12 +0000] [20064] [INFO] Using worker: sync
+[2025-02-20 18:51:12 +0000] [20065] [INFO] Booting worker with pid: 20065
+[2025-02-20 18:51:12 +0000] [20066] [INFO] Booting worker with pid: 20066
+[2025-02-20 18:51:12 +0000] [20067] [INFO] Booting worker with pid: 20067
+[2025-02-20 18:51:16 +0000] [20064] [INFO] Handling signal: int
+[2025-02-20 18:51:16 +0000] [20065] [INFO] Worker exiting (pid: 20065)
+[2025-02-20 18:51:16 +0000] [20066] [INFO] Worker exiting (pid: 20066)
+[2025-02-20 18:51:16 +0000] [20067] [INFO] Worker exiting (pid: 20067)
+[2025-02-20 18:51:16 +0000] [20064] [INFO] Shutting down: Master
