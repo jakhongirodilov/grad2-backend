@@ -19,7 +19,9 @@ class ReceptivityResponse(models.Model):
 class Context(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     notification = models.OneToOneField(Notification, on_delete=models.CASCADE)
-    location = models.CharField(max_length=50, choices=[('home', 'Home'), ('work', 'Work'), ('study', 'Study'), ('other', 'Other')])
-    mood = models.CharField(max_length=50, choices=[('happy', 'Happy'), ('neutral', 'Neutral'), ('stressed', 'Stressed')])
-    social_environment = models.CharField(max_length=50, choices=[('alone', 'Alone'), ('with friends', 'With Friends'), ('in public', 'In Public')])
-    is_busy = models.BooleanField()
+    location = models.CharField(max_length=100, blank=True, null=True)
+    work_hours = models.IntegerField(default=8, blank=True, null=True)
+    sleep_hours = models.FloatField(default=7.0, blank=True, null=True)
+    mood = models.CharField(max_length=100, blank=True, null=True)
+    social_environment = models.CharField(max_length=100, blank=True, null=True)
+    ongoing_task = models.CharField(max_length=150, blank=True, null=True)
