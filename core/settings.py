@@ -102,7 +102,7 @@ IS_PROD = env.bool("DJANGO_PROD", default=False)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql' if IS_PROD else 'django.db.backends.sqlite3',
-        'NAME': env("DB_NAME", default=BASE_DIR / "db.sqlite3"),
+        'NAME': str(env("DB_NAME", default=BASE_DIR / "db.sqlite3")),
         'USER': env("DB_USER", default=""),
         'PASSWORD': env("DB_PASSWORD", default=""),
         'HOST': env("DB_HOST", default=""),
