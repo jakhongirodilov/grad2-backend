@@ -22,16 +22,16 @@ logging.basicConfig(
 )
 
 FORM_SCHEDULE = [
-    (("04:55", "05:30"), "https://forms.gle/C1KuHNPPuQGfPfnJ6"),
-    (("06:55", "07:30"), "https://forms.gle/TwD8DrSP9MLH385V9"),
-    (("08:55", "09:30"), "https://forms.gle/eofts8bc8SE7fmGMA"),
-    (("10:55", "11:30"), "https://forms.gle/Km4hEfP3zWAsxFtZ6"),
+    (("04:55", "05:30"), "https://forms.gle/C1KuHNPPuQGfPfnJ6", "https://forms.gle/HXVHfLJULXs5FQnz6"),
+    (("06:55", "07:30"), "https://forms.gle/TwD8DrSP9MLH385V9", "https://forms.gle/LpkJHQgAjXnxuyrz8"),
+    (("08:55", "09:30"), "https://forms.gle/eofts8bc8SE7fmGMA", "https://forms.gle/i1AbRAqnNFPy8MsNA"),
+    (("10:55", "11:30"), "https://forms.gle/Km4hEfP3zWAsxFtZ6", "https://forms.gle/XVpWUxgPPR3dqrgj7"),
 ]
 
 MESSAGES = [
-    "🚀 Time to move! Take a short break and complete today’s activity. \n\n✅ Fill out the form:\n{form_url}",
-    "🏆 Stay active! Complete today’s task and keep the momentum going. \n\n🎯 Submit here:\n{form_url}",
-    "🔥 Quick break time! Refresh your body and mind. \n\n✅ Take action now:\n{form_url}"
+    "🚀 Time to move! Take a short break and complete today’s activity.\n\n✅ Task: {task_url}\n\n\n📝 Context: {context_url}",
+    "🏆 Stay active! Complete today’s task and keep the momentum going.\n\n🎯 Task: {task_url}\n\n\n📝 Context: {context_url}",
+    "🔥 Quick break time! Refresh your body and mind.\n\n✅ Task: {task_url}\n\n\n📝 Context: {context_url}"
 ]
 
 
@@ -39,11 +39,12 @@ def get_current_form():
     """Returns the correct Google Form URL if the current time falls within a range."""
     now = datetime.datetime.utcnow().strftime("%H:%M")
     
-    for (start_time, end_time), form_url in FORM_SCHEDULE:
+    for (start_time, end_time), task_url, context_url in FORM_SCHEDULE:
         if start_time <= now <= end_time:
-            return form_url
+            print(task_url, context_url)
+            return task_url, context_url
 
-    return None
+    return None, None
 
 
 
@@ -51,8 +52,8 @@ def get_current_form():
 def notify_user(request):
     bot_token = '8187229531:AAFlGG2TcUgHiNDkqDPOaDtlZJCj2wGXBxs'
     
-    form_url = get_current_form()
-    if not form_url:
+    task_url, context_url = get_current_form()
+    if not task_url:
         logging.warning("No scheduled form for this time range.")
         return JsonResponse({"status": "error", "message": "No scheduled form for this time range."})
 
@@ -61,7 +62,7 @@ def notify_user(request):
         logging.warning("No users with Telegram IDs found.")
         return JsonResponse({"status": "error", "message": "No users with Telegram IDs found."})
 
-    msg = random.choice(MESSAGES).format(form_url=form_url)
+    msg = random.choice(MESSAGES).format(task_url=task_url, context_url=context_url)
     
     sent_notifications = []
     failed_notifications = []
@@ -78,7 +79,7 @@ def notify_user(request):
             logging.info(f"Notification {notification.id} sent to {user.username}.")
         else:
             failed_notifications.append(notification.id)
-            logging.error(f"Failed to send Notification {notification.id} to {user.username}.")
+            logging.error(f"Failed to send Notification {notification.id} to {user.username}.\n  Response: {response}")
 
     return JsonResponse({
         "status": "success" if sent_notifications else "error",

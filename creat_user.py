@@ -8,6 +8,8 @@ users_data = [
     {"username": "2110125@newuu.uz", "telegram_id": "606016081"},
     {"username": "2110074@newuu.uz", "telegram_id": "1208994855"},
     {"username": "2110155@newuu.uz", "telegram_id": "557223030"},
+    {"username": "2110053@newuu.uz", "telegram_id": "845486735"},
+    {"username": "2110160@newuu.uz", "telegram_id": "1985440957"},
 ]
 
 for user_data in users_data:
