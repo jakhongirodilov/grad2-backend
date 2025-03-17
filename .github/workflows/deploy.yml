@@ -1,0 +1,30 @@
+name: Deploy Django App
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          cd /root/grad2-backend
+          git pull origin main
+          docker build -t grad2-backend .
+          docker stop grad2-backend || true
+          docker rm grad2-backend || true
+          docker run -d --env-file .env -p 8000:8000 -v /root/data:/app/dataset --name grad2-backend grad2-backend
+          docker exec -i grad2-backend python manage.py makemigrations
+          docker exec -i grad2-backend python manage.py migrate
