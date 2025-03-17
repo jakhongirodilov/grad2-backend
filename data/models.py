@@ -14,7 +14,7 @@ class ReceptivityResponse(models.Model):
     is_perceived = models.BooleanField(default=False)
     is_available = models.BooleanField(default=False)
     is_determined_to_adhere = models.BooleanField(default=False)
-    date_created = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField()
 
 
 class Context(models.Model):
