@@ -1,16 +1,19 @@
-import random
-import datetime
-import logging
+import random, os, datetime, logging
+from django.conf import settings
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
-from data.utils import send_telegram_message
+from data.utils import send_telegram_message, import_receptivity, import_context
 from data.models import Notification
 
 
 User = get_user_model()
+
+
+DATASET_DIR = os.path.join(settings.BASE_DIR, "dataset")
+
 
 # Setup logging
 LOG_FILE = "notifications.log"
@@ -87,6 +90,27 @@ def notify_user(request):
         "sent_notifications": sent_notifications,
         "failed_notifications": failed_notifications
     })
+
+
+@csrf_exempt
+def import_data(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "Only POST requests are allowed."}, status=405)
+
+    try:
+        receptivity_file = os.path.join(DATASET_DIR, "receptivity_2025-03-15.csv")
+        context_file = os.path.join(DATASET_DIR, "context_2025-03-15.csv")
+
+        if os.path.exists(receptivity_file):
+            import_receptivity(receptivity_file)
+
+        if os.path.exists(context_file):
+            import_context(context_file)
+
+        return JsonResponse({"message": "Data imported successfully."}, status=200)
+
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
 
 
 @method_decorator(csrf_exempt, name='dispatch')
