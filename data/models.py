@@ -22,7 +22,7 @@ class Context(models.Model):
     notification = models.ForeignKey(Notification, on_delete=models.CASCADE)
 
     mood = models.CharField(max_length=100, blank=True, null=True)
-    motivation_rate = models.CharField(max_length=100, blank=True, null=True)
+    motivation_rate = models.IntegerField(blank=True, null=True)
     ongoing_activity = models.CharField(max_length=150, blank=True, null=True)
     is_busy = models.BooleanField(default=False)
 

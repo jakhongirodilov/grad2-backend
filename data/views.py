@@ -32,9 +32,9 @@ FORM_SCHEDULE = [
 ]
 
 MESSAGES = [
-    "🚀 Time to move! Take a short break and complete today’s activity.\n\n✅ Task: {task_url}\n\n\n📝 Context: {context_url}",
-    "🏆 Stay active! Complete today’s task and keep the momentum going.\n\n🎯 Task: {task_url}\n\n\n📝 Context: {context_url}",
-    "🔥 Quick break time! Refresh your body and mind.\n\n✅ Task: {task_url}\n\n\n📝 Context: {context_url}"
+    "🚀 Time to move! \nPLEASE TAKE A TIME TO WALK 10 METERS AHEAD AND BACKWARDS.\n\n✅ Task: {task_url}\n\n\n📝 Context: {context_url}",
+    "🏆 Stay active! \nPLEASE TAKE A TIME TO WALK 10 METERS AHEAD AND BACKWARDS.\n\n🎯 Task: {task_url}\n\n\n📝 Context: {context_url}",
+    "🔥 Quick break time! \nPLEASE TAKE A TIME TO WALK 10 METERS AHEAD AND BACKWARDS.\n\n✅ Task: {task_url}\n\n\n📝 Context: {context_url}"
 ]
 
 
