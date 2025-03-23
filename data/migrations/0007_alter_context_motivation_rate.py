@@ -8,11 +8,21 @@ class Migration(migrations.Migration):
     dependencies = [
         ('data', '0006_alter_receptivityresponse_date_created'),
     ]
-
+    
     operations = [
+        migrations.RunSQL(
+            "UPDATE data_context SET motivation_rate = NULL WHERE motivation_rate = '';"
+        ),
         migrations.AlterField(
             model_name='context',
             name='motivation_rate',
             field=models.IntegerField(blank=True, null=True),
         ),
     ]
+#    operations = [
+#        migrations.AlterField(
+#            model_name='context',
+#            name='motivation_rate',
+#            field=models.IntegerField(blank=True, null=True),
+#        ),
+#    ]
