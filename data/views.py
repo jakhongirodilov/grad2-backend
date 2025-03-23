@@ -50,7 +50,6 @@ def get_current_form():
     return None, None
 
 
-
 @csrf_exempt
 def notify_user(request):
     bot_token = '8187229531:AAFlGG2TcUgHiNDkqDPOaDtlZJCj2wGXBxs'
