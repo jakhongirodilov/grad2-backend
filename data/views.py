@@ -107,11 +107,15 @@ def import_data(request):
             logging.info(f"Importing receptivity data from {receptivity_file}...")
             import_receptivity(receptivity_file)
             logging.info("Receptivity data imported successfully.")
+        else:
+            logging.info("Receptivity data file not found!!!")
 
         if os.path.exists(context_file):
             logging.info(f"Importing context data from {context_file}...")
             import_context(context_file)
             logging.info("Context data imported successfully.")
+        else:
+            logging.info("Context data file not found!!!")
 
         logging.info("Data import completed successfully.")
         return JsonResponse({"message": "Data imported successfully."}, status=200)
