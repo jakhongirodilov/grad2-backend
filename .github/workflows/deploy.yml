@@ -25,6 +25,7 @@ jobs:
           docker build -t grad2-backend .
           docker stop grad2-backend || true
           docker rm grad2-backend || true
-          docker run -d --env-file .env -p 8000:8000 -v /root/data:/app/dataset --name grad2-backend grad2-backend
+          # docker run -d --env-file .env -p 8000:8000 -v /root/data:/app/dataset --name grad2-backend grad2-backend
+          docker run -d --env-file .env -p 8000:8000 -v /root/notifications.log:/app/notifications.log --name grad2-backend grad2-backend
           docker exec -i grad2-backend python manage.py makemigrations
           docker exec -i grad2-backend python manage.py migrate
