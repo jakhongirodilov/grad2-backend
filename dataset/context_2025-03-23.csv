@@ -1,0 +1,29 @@
+location,mood,device_type,user_id,notification_id,ongoing_activity,connection_rate,is_appropriate_time,is_busy,is_silent,location_distraction_rate,motivation_rate,surrounding_people,surrounding_people_distraction_rate,sleep_hours,work_hours
+At home,Neutral,Smartphone,2,225,Sleeping,4,true,true,false,3,3,Alone,3,6,0
+At home,Neutral,Smartphone,2,232,Sleeping,4,true,true,false,3,3,Alone,3,7,0
+At home,Somewhat positive,Smartphone,2,239,Other,4,true,false,false,4,4,With family,4,8,0
+At home,Neutral,Smartphone,2,246,Using social media,4,true,false,false,2,2,Alone,1,8,0
+At home,Very negative,Smartphone,3,226,Sleeping,3,false,true,false,1,1,Alone,1,9,0
+Outdoors,Somewhat positive,Smartphone,3,233,Using social media,4,true,false,false,1,4,With friends,2,9,1
+In transit,Somewhat positive,Smartwatch,3,240,Commuting,4,true,true,false,5,5,In a public,4,10,2
+At home,Neutral,Smartphone,3,247,Working,3,true,true,false,1,3,Alone,1,10,5
+Outdoors,Somewhat positive,Laptop/Desktop,4,227,Commuting,2,false,true,false,1,4,Alone,1,6,1
+Outdoors,Somewhat negative,Smartphone,4,234,Working,2,false,true,false,1,1,Alone,1,6,4
+At home,Very negative,Smartphone,4,241,Watching TV,2,false,true,false,1,2,Alone,1,6,7
+Outdoors,Somewhat positive,Smartphone,4,248,Using social media,3,true,true,true,1,3,Alone,1,7,7
+Outdoors,Very positive,Smartphone,5,228,Using social media,4,true,false,false,3,5,In a public,3,5,0
+Outdoors,Very positive,Smartphone,5,235,Other,4,true,true,false,3,5,In a public,3,5,2
+Outdoors,Somewhat positive,Smartphone,5,242,Other,4,false,true,false,5,3,In a public,5,5,3
+At home,Very positive,Smartphone,5,249,Using social media,4,true,false,false,1,5,With friends,1,5,4
+In transit,Neutral,Smartphone,6,229,Commuting,1,false,true,false,3,3,In a public,3,8,4
+Outdoors,Neutral,Smartphone,6,236,Working,3,true,false,false,3,3,In a public,2,8,4
+In transit,Neutral,Smartphone,6,243,Commuting,1,false,true,false,3,3,Alone,3,8,2
+Outdoors,Neutral,Smartphone,6,250,Commuting,3,true,false,false,3,4,With friends,3,8,2
+At home,Neutral,Smartphone,7,230,Sleeping,4,false,true,false,1,1,Alone,1,4,0
+Outdoors,Neutral,Smartphone,7,237,Other,4,true,false,false,2,3,In a public,3,5,0
+At home,Neutral,Smartphone,7,244,Exercising,2,true,true,false,4,1,With family,5,5,0
+At home,Neutral,Smartphone,7,251,Exercising,2,true,true,false,4,1,With family,5,5,0
+At home,Very positive,Smartphone,8,231,Other,4,true,false,false,1,5,Alone,1,10,0
+At home,Very positive,Smartphone,8,238,Exercising,4,true,false,false,1,5,Alone,1,0,0
+At home,Very positive,Smartphone,8,245,Watching TV,4,true,false,true,1,5,Alone,1,0,0
+At home,Very positive,Smartphone,8,252,Using social media,4,true,false,true,3,5,With family,3,0,0
