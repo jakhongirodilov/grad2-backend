@@ -97,8 +97,8 @@ def import_data(request):
         return JsonResponse({"error": "Only POST requests are allowed."}, status=405)
 
     try:
-        receptivity_file = os.path.join(DATASET_DIR, "receptivity_2025-03-15.csv")
-        context_file = os.path.join(DATASET_DIR, "context_2025-03-15.csv")
+        receptivity_file = os.path.join(DATASET_DIR, "receptivity_2025-03-16.csv")
+        context_file = os.path.join(DATASET_DIR, "context_2025-03-16.csv")
 
         if os.path.exists(receptivity_file):
             import_receptivity(receptivity_file)

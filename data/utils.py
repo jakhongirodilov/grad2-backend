@@ -86,7 +86,8 @@ def import_context(file_path):
                     user=user,
                     notification=notification,
                     mood=row.get("mood", ""),
-                    motivation_rate=row.get("motivation_rate", ""),
+                    # motivation_rate=row.get("motivation_rate", ""),
+                    motivation_rate=int(row["motivation_rate"]) if row.get("motivation_rate") else None,
                     ongoing_activity=row.get("ongoing_activity", ""),
                     is_busy=row.get("is_busy", "").lower() == "true",
                     
