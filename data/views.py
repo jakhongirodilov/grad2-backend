@@ -94,22 +94,32 @@ def notify_user(request):
 @csrf_exempt
 def import_data(request):
     if request.method != "POST":
+        logging.warning("Invalid request method for data import.")
         return JsonResponse({"error": "Only POST requests are allowed."}, status=405)
 
     try:
         receptivity_file = os.path.join(DATASET_DIR, "receptivity_2025-03-16.csv")
         context_file = os.path.join(DATASET_DIR, "context_2025-03-16.csv")
 
+        logging.info("Starting data import process...")
+
         if os.path.exists(receptivity_file):
+            logging.info(f"Importing receptivity data from {receptivity_file}...")
             import_receptivity(receptivity_file)
+            logging.info("Receptivity data imported successfully.")
 
         if os.path.exists(context_file):
+            logging.info(f"Importing context data from {context_file}...")
             import_context(context_file)
+            logging.info("Context data imported successfully.")
 
+        logging.info("Data import completed successfully.")
         return JsonResponse({"message": "Data imported successfully."}, status=200)
 
     except Exception as e:
+        logging.error(f"Data import failed: {str(e)}")
         return JsonResponse({"error": str(e)}, status=500)
+
 
 
 @method_decorator(csrf_exempt, name='dispatch')
