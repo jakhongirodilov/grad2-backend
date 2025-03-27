@@ -16,7 +16,7 @@ DATASET_DIR = os.path.join(settings.BASE_DIR, "dataset")
 
 
 # Setup logging
-LOG_FILE = "notifications.log"
+LOG_FILE = os.path.join(settings.BASE_DIR, "notifications.log")
 logging.basicConfig(
     filename=LOG_FILE,
     level=logging.INFO,
