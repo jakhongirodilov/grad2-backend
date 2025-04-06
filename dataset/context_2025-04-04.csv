@@ -1,0 +1,29 @@
+location,mood,device_type,user_id,notification_id,ongoing_activity,connection_rate,is_appropriate_time,is_busy,is_silent,location_distraction_rate,motivation_rate,surrounding_people,surrounding_people_distraction_rate,sleep_hours,work_hours
+At work,Somewhat positive,Smartphone,2,561,Working,4,true,false,false,3,4,With colleagues,2,7,4
+At work,Somewhat positive,Smartphone,2,568,Working,4,true,false,false,2,4,With colleagues,2,7,6
+Outdoors,Neutral,Smartphone,2,575,Using social media,4,true,false,false,3,3,Alone,3,7,8
+At home,Neutral,Smartphone,2,582,Other,4,true,true,false,4,3,With family,4,7,8
+Outdoors,Somewhat positive,Smartphone,3,562,Using social media,4,true,false,false,3,5,With friends,2,8,1
+At work,Somewhat positive,Laptop/Desktop,3,569,Working,3,false,false,false,5,5,With colleagues,4,8,3
+Outdoors,Neutral,Smartphone,3,576,Using social media,4,true,false,false,3,3,Alone,1,8,5
+Outdoors,Somewhat negative,Smartphone,3,583,Other,4,false,true,false,3,1,Alone,1,8,6
+In transit,Neutral,Smartphone,4,563,Commuting,3,true,false,false,4,4,In a public,4,8,0
+At work,Neutral,Smartphone,4,570,Working,3,true,false,false,4,3,With colleagues,2,8,2
+In transit,Somewhat positive,Smartphone,4,577,Commuting,3,true,false,false,4,4,In a public,2,8,3
+In transit,Neutral,Smartphone,4,584,Commuting,3,true,false,false,3,3,In a public,3,8,3
+Outdoors,Neutral,Smartphone,5,564,Other,3,false,true,false,5,2,In a public,5,6,0
+At home,Very positive,Smartphone,5,571,Using social media,4,true,false,false,2,4,With friends,3,6,0
+In transit,Neutral,Smartphone,5,578,Commuting,3,false,true,false,3,3,In a public,3,6,0
+At home,Very positive,Smartphone,5,585,Other,4,true,true,false,3,4,With family,4,6,0
+In transit,Neutral,Smartphone,6,565,Commuting,1,true,true,false,2,3,In a public,3,7,4
+At home,Neutral,Smartphone,6,572,Sleeping,4,false,true,false,3,5,Alone,3,8,4
+Outdoors,Neutral,Smartphone,6,579,Other,3,true,true,false,3,3,Alone,3,8,4
+In transit,Neutral,Smartphone,6,586,Commuting,3,true,true,false,3,3,In a public,3,8,4
+At home,Somewhat positive,Smartphone,7,566,Studying,4,true,false,false,1,4,Alone,1,8,0
+At home,Neutral,Smartphone,7,573,Other,4,true,true,false,5,1,Alone,1,8,0
+At home,Neutral,Smartphone,7,580,Other,4,true,true,false,3,1,With family,5,8,0
+At home,Very negative,Smartphone,7,587,Using social media,4,false,true,false,1,1,Alone,1,8,0
+At work,Very positive,Smartphone,8,567,Working,4,true,false,false,1,5,With colleagues,1,4,4
+At work,Very positive,Smartphone,8,574,Working,4,true,false,false,1,5,With colleagues,1,0,2
+At work,Somewhat positive,Smartphone,8,581,Working,4,true,false,false,2,4,With colleagues,2,0,2
+At work,Somewhat positive,Smartphone,8,588,Working,4,true,false,false,2,4,With colleagues,2,0,2
