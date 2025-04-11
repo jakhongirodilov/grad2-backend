@@ -25,10 +25,10 @@ logging.basicConfig(
 )
 
 FORM_SCHEDULE = [
-    (("08:45", "09:30"), "https://forms.gle/C1KuHNPPuQGfPfnJ6", "https://forms.gle/HXVHfLJULXs5FQnz6"),
-    (("10:45", "11:30"), "https://forms.gle/TwD8DrSP9MLH385V9", "https://forms.gle/LpkJHQgAjXnxuyrz8"),
-    (("12:45", "13:30"), "https://forms.gle/eofts8bc8SE7fmGMA", "https://forms.gle/i1AbRAqnNFPy8MsNA"),
-    (("14:45", "15:30"), "https://forms.gle/Km4hEfP3zWAsxFtZ6", "https://forms.gle/XVpWUxgPPR3dqrgj7"),
+    (("07:45", "08:30"), "https://forms.gle/C1KuHNPPuQGfPfnJ6", "https://forms.gle/HXVHfLJULXs5FQnz6"),
+    (("09:45", "10:30"), "https://forms.gle/TwD8DrSP9MLH385V9", "https://forms.gle/LpkJHQgAjXnxuyrz8"),
+    (("11:45", "12:30"), "https://forms.gle/eofts8bc8SE7fmGMA", "https://forms.gle/i1AbRAqnNFPy8MsNA"),
+    (("13:45", "14:30"), "https://forms.gle/Km4hEfP3zWAsxFtZ6", "https://forms.gle/XVpWUxgPPR3dqrgj7"),
 ]
 
 MESSAGES = [
@@ -98,8 +98,8 @@ def import_data(request):
         return JsonResponse({"error": "Only POST requests are allowed."}, status=405)
 
     try:
-        receptivity_file = os.path.join(DATASET_DIR, "receptivity_2025-04-09.csv")
-        context_file = os.path.join(DATASET_DIR, "context_2025-04-09.csv")
+        receptivity_file = os.path.join(DATASET_DIR, "receptivity_2025-04-10.csv")
+        context_file = os.path.join(DATASET_DIR, "context_2025-04-10.csv")
 
         logging.info("Starting data import process...")
 
