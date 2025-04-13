@@ -1,0 +1,29 @@
+location,mood,device_type,user_id,notification_id,ongoing_activity,connection_rate,is_appropriate_time,is_busy,is_silent,location_distraction_rate,motivation_rate,surrounding_people,surrounding_people_distraction_rate,sleep_hours,work_hours
+At home,Very positive,Smartphone,2,785,Other,4,true,false,false,1,4,Alone,3,8,0
+At home,Somewhat negative,Smartphone,2,792,Using social media,4,true,false,false,2,4,With family,2,8,0
+At study,Somewhat positive,Smartphone,2,799,Other,4,true,false,false,2,4,With friends,2,8,0
+At home,Neutral,Smartphone,3,786,Sleeping,2,false,true,true,1,3,Alone,1,10,0
+In transit,Somewhat positive,Smartwatch,3,793,Commuting,3,true,true,false,5,4,In a public,5,10,0
+At study,Somewhat negative,Smartwatch,3,800,Studying,4,false,true,false,5,3,With friends,3,10,0
+At study,Neutral,Laptop/Desktop,4,787,Studying,2,false,true,false,2,3,Alone,2,8,3
+At study,Neutral,Laptop/Desktop,4,794,Studying,2,false,true,false,2,2,Alone,2,8,4
+At study,Somewhat positive,Laptop/Desktop,4,801,Other,3,true,false,false,3,2,With friends,2,8,5
+At study,Somewhat negative,Smartwatch,4,808,Studying,2,false,true,false,2,1,With friends,2,8,5
+At home,Somewhat positive,Smartphone,5,788,Exercising,3,true,false,false,1,4,Alone,2,7,2
+In transit,Somewhat positive,Smartphone,5,795,Commuting,2,false,false,false,5,3,In a public,4,7,4
+At study,Very positive,Laptop/Desktop,5,802,Working,4,true,false,false,2,4,With friends,2,7,5
+At study,Neutral,Smartphone,5,809,Working,4,true,false,false,3,4,With friends,3,7,5
+Outdoors,Neutral,Smartphone,6,803,Sleeping,2,false,true,false,3,3,In a public,5,9,6
+Outdoors,Neutral,Smartphone,7,790,Other,4,false,true,false,4,1,With friends,4,8,0
+In transit,Neutral,Smartphone,7,797,Commuting,4,false,true,false,5,1,With friends,3,8,0
+Outdoors,Somewhat negative,Smartphone,7,804,Studying,4,true,false,false,1,4,Alone,1,8,0
+Outdoors,Very positive,Smartphone,8,791,Commuting,4,true,false,false,1,5,With friends,1,10,0
+Outdoors,Very positive,Smartphone,8,798,Commuting,4,true,false,true,1,5,Alone,1,0,0
+Outdoors,Very positive,Laptop/Desktop,8,805,Commuting,4,true,false,false,1,5,With friends,1,0,2
+Outdoors,Very positive,Laptop/Desktop,8,812,Working,4,true,false,false,1,5,With friends,1,0,2
+,,,2,806,,,,,,,,,,,
+,,,3,807,,,,,,,,,,,
+,,,6,789,,,,,,,,,,,
+,,,6,796,,,,,,,,,,,
+,,,6,810,,,,,,,,,,,
+,,,7,811,,,,,,,,,,,
