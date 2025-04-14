@@ -98,8 +98,8 @@ def import_data(request):
         return JsonResponse({"error": "Only POST requests are allowed."}, status=405)
 
     try:
-        receptivity_file = os.path.join(DATASET_DIR, "receptivity_2025-04-13.csv")
-        context_file = os.path.join(DATASET_DIR, "context_2025-04-13.csv")
+        receptivity_file = os.path.join(DATASET_DIR, "receptivity_2025-04-14.csv")
+        context_file = os.path.join(DATASET_DIR, "context_2025-04-14.csv")
 
         logging.info("Starting data import process...")
 
